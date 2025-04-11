@@ -68,9 +68,23 @@ class TitleScene extends Phaser.Scene {
     this.load.image('good', './images/good.png');
     this.load.image('bad', './images/bad.png');
 
+    this.load.audio('titleBGM', './sounds/title_bgm.mp3');
+    this.load.audio('mainBGM', './sounds/main_bgm.mp3');
+    this.load.audio('selectSE', './sounds/select_se.mp3');
+    this.load.audio('fillingSE', './sounds/filling_se.mp3');
+    this.load.audio('slideSE', './sounds/slide_se.mp3');
+    this.load.audio('perfectSE', './sounds/perfect_se.mp3');
+    this.load.audio('goodSE', './sounds/good_se.mp3');
+    this.load.audio('startSE', './sounds/start_se.mp3');
+    this.load.audio('finishSE', './sounds/finish_se.mp3');
+
     // ロード完了後にタイトル画面を生成
     this.load.on('complete', () => {
       this.cameras.main.setRoundPixels(true);
+
+      const selectSE = this.sound.add('selectSE', { loop: false, volume: 0.5 })
+      const bgm = this.sound.add('titleBGM', { loop: true, volume: 0.3 });
+      bgm.play();
 
       this.add.image(this.cameras.main.width / 2, 0, 'titleBg').setOrigin(0.5, 0);
       const logo = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'logo').setOrigin(0.5, 1);
@@ -104,6 +118,7 @@ class TitleScene extends Phaser.Scene {
       });
 
       helpBtn.on('pointerdown', () => {
+        selectSE.play();
         playBtn.removeInteractive();
         helpBtn.removeInteractive();
 
@@ -127,6 +142,7 @@ class TitleScene extends Phaser.Scene {
           onComplete: () => {
             closeBtn.setInteractive();
             closeBtn.on('pointerdown', () => {
+              selectSE.play();
               this.tweens.add({
                 targets: [helpBg, helpManual, closeBtn],
                 alpha: 0,
@@ -146,9 +162,11 @@ class TitleScene extends Phaser.Scene {
       });
 
       playBtn.on('pointerdown', () => {
+        selectSE.play();
         this.cameras.main.fadeOut(1000);
         this.cameras.main.once('camerafadeoutcomplete', () => {
           this.scene.start('MainScene');
+          bgm.stop();
         });
       });
     });

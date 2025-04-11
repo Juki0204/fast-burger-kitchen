@@ -5,6 +5,7 @@ class MainScene extends Phaser.Scene {
   maxTime!: number;
   currentTime!: number;
   score!: number;
+  bgm: any;
 
   fillingsList = [
     { "num": 1, "ja": "たまねぎ", "en": "onion", "price": 10 },
@@ -31,6 +32,15 @@ class MainScene extends Phaser.Scene {
   create() {
     this.cameras.main.setRoundPixels(true);
 
+    const selectSE = this.sound.add('selectSE', { loop: false, volume: 0.5 });
+    const fillingSE = this.sound.add('fillingSE', { loop: false, volume: 0.3 });
+    const slideSE = this.sound.add('slideSE', { loop: false, volume: 0.3 }).setRate(2);
+    const perfectSE = this.sound.add('perfectSE', { loop: false, volume: 0.3 });
+    const goodSE = this.sound.add('goodSE', { loop: false, volume: 0.3 });
+    const startSE = this.sound.add('startSE', { loop: false, volume: 0.3 });
+    this.bgm = this.sound.add('mainBGM', { loop: true, volume: 0.3 });
+    this.bgm.play();
+
     let gameWidth = this.cameras.main.width;
     let gameHeight = this.cameras.main.height;
     let noworder = false;
@@ -50,6 +60,7 @@ class MainScene extends Phaser.Scene {
     const pauseBtn = this.add.image(gameWidth - 10, 10, 'pauseBtn').setOrigin(1, 0);
     pauseBtn.setInteractive();
     pauseBtn.on('pointerdown', () => {
+      selectSE.play();
       this.scene.pause();
       this.scene.launch('PauseScene');
     });
@@ -120,6 +131,8 @@ class MainScene extends Phaser.Scene {
       duration: 800,
       ease: 'Cubic.easeIn',
       onComplete: () => {
+        startSE.play();
+
         this.time.delayedCall(1800, () => {
           this.tweens.add({
             targets: startImage,
@@ -182,6 +195,7 @@ class MainScene extends Phaser.Scene {
     btnList.forEach(burgerBtn => {
       burgerBtn.btn.setInteractive();
       burgerBtn.btn.on('pointerdown', () => {
+        fillingSE.play();
         burgerCount++;
         console.log(`${burgerBtn.arg} ボタンが押されました`);
         const addObj = this.addBurger(burgerBtn.arg, burgerBtn.collideSize, burgerCount);
@@ -316,6 +330,7 @@ class MainScene extends Phaser.Scene {
     this.input.on('pointerup', () => {
       if (isDrugging && burgerCount > 4) {
         isDrugging = false;
+        slideSE.play();
 
         if (burgerContainer.x < (gameWidth / 2) - 50) {
           this.tweens.add({
@@ -360,6 +375,7 @@ class MainScene extends Phaser.Scene {
 
               // 正誤タイムボーナス追加
               if (checkAnswer(quesionArr, answerArr) === 'perfect') {
+                perfectSE.play();
                 this.currentTime += 2;
                 const plusTxt = this.add.text(236, 31, '+2s', { fontFamily: "sans serif", fontStyle: "bold", color: "white" }).setOrigin(1, 0.5);
                 this.tweens.add({
@@ -381,6 +397,8 @@ class MainScene extends Phaser.Scene {
                     minusTxt.destroy();
                   }
                 });
+              } else {
+                goodSE.play();
               }
 
               // クリーンナップ処理＋次waveへの進行
@@ -457,6 +475,8 @@ class MainScene extends Phaser.Scene {
         duration: 600,
         ease: 'Cubic.easeIn',
         onComplete: () => {
+          const finishSE = this.sound.add('finishSE', { loop: false, volume: 0.3 });
+          finishSE.play();
           this.time.delayedCall(3000, () => {
             this.scene.pause();
             this.scene.launch('ResultScene', { score: this.score });
