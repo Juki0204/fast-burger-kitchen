@@ -102,6 +102,9 @@ class TitleScene extends Phaser.Scene {
       });
 
       helpBtn.on('pointerdown', () => {
+        playBtn.removeInteractive();
+        helpBtn.removeInteractive();
+
         const helpBg = this.add.rectangle(0, 0, this.cameras.main.width, this.cameras.main.height, 0x000000).setOrigin(0, 0).setDepth(10).setAlpha(0);
         const helpManual = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'helpManual').setOrigin(0.5, 0.5).setDepth(10).setAlpha(0);
         const manualWidth = this.cameras.main.width - 40;
@@ -130,6 +133,9 @@ class TitleScene extends Phaser.Scene {
                   helpBg.destroy();
                   helpManual.destroy();
                   closeBtn.destroy();
+
+                  playBtn.setInteractive();
+                  helpBtn.setInteractive();
                 }
               });
             })
