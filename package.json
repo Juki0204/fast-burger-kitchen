@@ -13,6 +13,10 @@
     "vite": "^6.2.0"
   },
   "dependencies": {
-    "phaser": "^3.88.2"
+    "@tailwindcss/vite": "^4.0.17",
+    "jsx-dom": "^8.1.6",
+    "phaser": "^3.88.2",
+    "start-dom-jsx": "^1.0.0-beta.1",
+    "tailwindcss": "^4.0.17"
   }
 }
