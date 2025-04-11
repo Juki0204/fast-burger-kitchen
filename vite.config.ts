@@ -12,4 +12,5 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
   ],
+  base: '/fast-burger-kitchen/',
 });
