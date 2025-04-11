@@ -86,8 +86,8 @@ class TitleScene extends Phaser.Scene {
         highScoreTxt = `ハイスコア:${parseInt(highScore).toLocaleString()}円`;
       }
       this.add.text(this.cameras.main.width / 2, this.cameras.main.height - 10, highScoreTxt, { fontFamily: 'sans serif', fontSize: `24px`, fontStyle: "bold", color: '#333333' }).setOrigin(0.5, 1);
-      const playBtn = this.add.image(this.cameras.main.width / 2, (this.cameras.main.height / 2) + 40, 'playBtn').setScale(0.88).setOrigin(0.5, 0);
-      const helpBtn = this.add.image(this.cameras.main.width / 2, (this.cameras.main.height / 2) + 200, 'helpBtn').setScale(0.88).setOrigin(0.5, 0);
+      const playBtn = this.add.image(this.cameras.main.width / 2, (this.cameras.main.height / 2) + 20, 'playBtn').setOrigin(0.5, 0);
+      const helpBtn = this.add.image(this.cameras.main.width / 2, (this.cameras.main.height / 2) + 160, 'helpBtn').setOrigin(0.5, 0);
       playBtn.setInteractive();
       helpBtn.setInteractive();
 

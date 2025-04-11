@@ -11,9 +11,9 @@ class PauseScene extends Phaser.Scene {
     this.cameras.main.setRoundPixels(true);
 
     const pauseBg = this.add.rectangle(0, 0, this.cameras.main.width, this.cameras.main.height, 0x000000).setOrigin(0, 0).setDepth(10).setAlpha(0);
-    const resumeBtn = this.add.image(this.cameras.main.width / 2, (this.cameras.main.height / 2) - 160, 'resumeBtn').setOrigin(0.5, 0.5).setScale(0.88).setDepth(10).setAlpha(0);
-    const restartBtn = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'restartBtn').setOrigin(0.5, 0.5).setScale(0.88).setDepth(10).setAlpha(0);
-    const backToTitleBtn = this.add.image(this.cameras.main.width / 2, (this.cameras.main.height / 2) + 160, 'backToTitleBtn').setOrigin(0.5, 0.5).setScale(0.88).setDepth(10).setAlpha(0);
+    const resumeBtn = this.add.image(this.cameras.main.width / 2, (this.cameras.main.height / 2) - 160, 'resumeBtn').setOrigin(0.5, 0.5).setDepth(10).setAlpha(0);
+    const restartBtn = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'restartBtn').setOrigin(0.5, 0.5).setDepth(10).setAlpha(0);
+    const backToTitleBtn = this.add.image(this.cameras.main.width / 2, (this.cameras.main.height / 2) + 160, 'backToTitleBtn').setOrigin(0.5, 0.5).setDepth(10).setAlpha(0);
 
     this.tweens.add({
       targets: [pauseBg],
