@@ -17,7 +17,7 @@ const config: Phaser.Types.Core.GameConfig = {
   physics: { //物理演算
     default: 'arcade', //使用する物理エンジンの指定
     arcade: { //詳細設定
-      gravity: { x: 0, y: 300 },
+      gravity: { x: 0, y: 1000 },
       debug: false
     },
   },

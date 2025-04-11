@@ -78,10 +78,10 @@ class MainScene extends Phaser.Scene {
     // });
 
     //操作ボタン
-    const btnWidth = (gameWidth - 24) / 3;
-    const btnHeight = btnWidth * 0.737705;
-    const altBtnWidth = (gameWidth - 20) / 2;
-    const altBtnHeight = altBtnWidth * 0.2702703;
+    const btnWidth = Math.floor((gameWidth - 24) / 3);
+    const btnHeight = Math.floor(btnWidth * 0.737705);
+    const altBtnWidth = Math.floor((gameWidth - 20) / 2);
+    const altBtnHeight = Math.floor(altBtnWidth * 0.2702703);
     const containerHeight = (btnHeight * 2) + altBtnHeight + 8;
 
     let btnContainer = this.add.container(0, gameHeight - containerHeight - 8);
