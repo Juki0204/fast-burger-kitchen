@@ -25,47 +25,47 @@ class TitleScene extends Phaser.Scene {
       percentTxt.setText(Math.floor(value * 100) + '%');
     });
 
-    this.load.image('bg', '/images/background.png');
-    this.load.image('titleBg', '/images/title_bg.png');
-    this.load.image('playBtn', '/images/play.png');
-    this.load.image('helpBtn', '/images/help.png');
-    this.load.image('helpManual', '/images/help_manual.png');
-    this.load.image('logo', '/images/title_logo.png');
-    this.load.image('closeBtn', '/images/close_btn.png');
+    this.load.image('bg', './images/background.png');
+    this.load.image('titleBg', './images/title_bg.png');
+    this.load.image('playBtn', './images/play.png');
+    this.load.image('helpBtn', './images/help.png');
+    this.load.image('helpManual', './images/help_manual.png');
+    this.load.image('logo', './images/title_logo.png');
+    this.load.image('closeBtn', './images/close_btn.png');
 
-    this.load.image('timeBg', '/images/time_bg.png');
-    this.load.image('timeBorder', '/images/time_border.png');
-    this.load.image('clock', '/images/clock.png');
-    this.load.image('pauseBtn', '/images/pause_btn.png');
-    this.load.image('success', '/images/success.png');
-    this.load.image('resumeBtn', '/images/resume.png');
-    this.load.image('restartBtn', '/images/restart.png');
-    this.load.image('backToTitleBtn', '/images/backtotitle.png');
-    this.load.image('oneMoreBtn', '/images/onemore.png');
+    this.load.image('timeBg', './images/time_bg.png');
+    this.load.image('timeBorder', './images/time_border.png');
+    this.load.image('clock', './images/clock.png');
+    this.load.image('pauseBtn', './images/pause_btn.png');
+    this.load.image('success', './images/success.png');
+    this.load.image('resumeBtn', './images/resume.png');
+    this.load.image('restartBtn', './images/restart.png');
+    this.load.image('backToTitleBtn', './images/backtotitle.png');
+    this.load.image('oneMoreBtn', './images/onemore.png');
 
-    this.load.image('btn1', '/images/main_btn1.png');
-    this.load.image('btn2', '/images/main_btn2.png');
-    this.load.image('btn3', '/images/main_btn3.png');
-    this.load.image('btn4', '/images/main_btn4.png');
-    this.load.image('btn5', '/images/main_btn5.png');
-    this.load.image('btn6', '/images/main_btn6.png');
-    this.load.image('btn7', '/images/main_btn7.png');
-    this.load.image('btn8', '/images/main_btn8.png');
+    this.load.image('btn1', './images/main_btn1.png');
+    this.load.image('btn2', './images/main_btn2.png');
+    this.load.image('btn3', './images/main_btn3.png');
+    this.load.image('btn4', './images/main_btn4.png');
+    this.load.image('btn5', './images/main_btn5.png');
+    this.load.image('btn6', './images/main_btn6.png');
+    this.load.image('btn7', './images/main_btn7.png');
+    this.load.image('btn8', './images/main_btn8.png');
 
-    this.load.image('topBuns', '/images/top_buns.png');
-    this.load.image('bottomBuns', '/images/bottom_buns.png');
-    this.load.image('onion', '/images/onion.png');
-    this.load.image('lettuce', '/images/lettuce.png');
-    this.load.image('pickles', '/images/pickles.png');
-    this.load.image('tomato', '/images/tomato.png');
-    this.load.image('cheese', '/images/cheese.png');
-    this.load.image('patty', '/images/patty.png');
+    this.load.image('topBuns', './images/top_buns.png');
+    this.load.image('bottomBuns', './images/bottom_buns.png');
+    this.load.image('onion', './images/onion.png');
+    this.load.image('lettuce', './images/lettuce.png');
+    this.load.image('pickles', './images/pickles.png');
+    this.load.image('tomato', './images/tomato.png');
+    this.load.image('cheese', './images/cheese.png');
+    this.load.image('patty', './images/patty.png');
 
-    this.load.image('start', '/images/start.png');
-    this.load.image('finish', '/images/finish.png');
-    this.load.image('perfect', '/images/perfect.png');
-    this.load.image('good', '/images/good.png');
-    this.load.image('bad', '/images/bad.png');
+    this.load.image('start', './images/start.png');
+    this.load.image('finish', './images/finish.png');
+    this.load.image('perfect', './images/perfect.png');
+    this.load.image('good', './images/good.png');
+    this.load.image('bad', './images/bad.png');
 
     // ロード完了後にタイトル画面を生成
     this.load.on('complete', () => {
