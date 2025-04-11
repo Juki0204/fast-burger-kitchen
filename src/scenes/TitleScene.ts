@@ -7,6 +7,7 @@ class TitleScene extends Phaser.Scene {
   }
 
   preload() {
+
     // アセット読み込み時のローディング画面作成
     const progressBarBg = this.add.graphics().setDepth(50);
     progressBarBg.fillStyle(0xffffff, 1);
@@ -69,6 +70,8 @@ class TitleScene extends Phaser.Scene {
 
     // ロード完了後にタイトル画面を生成
     this.load.on('complete', () => {
+      this.cameras.main.setRoundPixels(true);
+
       this.add.image(this.cameras.main.width / 2, 0, 'titleBg').setOrigin(0.5, 0);
       const logo = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'logo').setOrigin(0.5, 1);
       const logoWidth = this.cameras.main.width - 20;
@@ -82,8 +85,7 @@ class TitleScene extends Phaser.Scene {
       if (highScore) {
         highScoreTxt = `ハイスコア:${parseInt(highScore).toLocaleString()}円`;
       }
-      this.add.text(this.cameras.main.width / 2, this.cameras.main.height - 10, highScoreTxt, { fontFamily: 'sans serif', fontSize: 24, fontStyle: 'bold', color: '#333333', padding: { x: 0, y: 5 } }).setOrigin(0.5, 1);
-
+      this.add.text(this.cameras.main.width / 2, this.cameras.main.height - 10, highScoreTxt, { fontFamily: 'sans serif', fontSize: `24px`, fontStyle: "bold", color: '#333333' }).setOrigin(0.5, 1);
       const playBtn = this.add.image(this.cameras.main.width / 2, (this.cameras.main.height / 2) + 40, 'playBtn').setScale(0.88).setOrigin(0.5, 0);
       const helpBtn = this.add.image(this.cameras.main.width / 2, (this.cameras.main.height / 2) + 200, 'helpBtn').setScale(0.88).setOrigin(0.5, 0);
       playBtn.setInteractive();
@@ -149,12 +151,37 @@ class TitleScene extends Phaser.Scene {
           this.scene.start('MainScene');
         });
       });
-
     });
+
   }
 
   create() {
+    // const pixelRatio = window.devicePixelRatio || 1;
+    // const canvas = this.sys.game.canvas;
 
+    // console.log(pixelRatio);
+    // console.log(this.game.config.width);
+    // console.log(this.game.config.height);
+    // canvas.width = Math.floor(this.game.config.width as number * pixelRatio);
+    // canvas.height = Math.floor(this.game.config.height as number * pixelRatio);
+
+    // canvas.style.width = `${canvas.width / pixelRatio}px`;
+    // canvas.style.height = `${canvas.height / pixelRatio}px`;
+
+    // // const ctx = this.sys.game.context as CanvasRenderingContext2D;
+    // // if (ctx) {
+    // //   ctx.scale(pixelRatio, pixelRatio);
+    // // } else {
+    // //   console.error('canvas rendering context is not available')
+    // // }
+
+    // const ctx = canvas.getContext('2d'); // CanvasRenderingContext2Dを取得
+    // if (ctx) {
+    //   ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0); // スケールを設定
+    // };
+
+
+    // this.cameras.main.setZoom(1);
   }
 
   update() {

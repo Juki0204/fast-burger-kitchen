@@ -21,8 +21,10 @@ const config: Phaser.Types.Core.GameConfig = {
       debug: false
     },
   },
-  dom: {
-    createContainer: true,
+  render: {
+    pixelArt: false,
+    antialias: false,
+    antialiasGL: false,
   },
   input: {
     keyboard: true,

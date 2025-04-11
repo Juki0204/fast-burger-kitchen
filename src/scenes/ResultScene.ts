@@ -8,6 +8,8 @@ class ResultScene extends Phaser.Scene {
   preload() { }
 
   create(data: any) {
+    this.cameras.main.setRoundPixels(true);
+
     const resultBg = this.add.rectangle(0, 0, this.cameras.main.width, this.cameras.main.height, 0x000000).setOrigin(0, 0).setDepth(10).setAlpha(0);
     const oneMoreBtn = this.add.image((this.cameras.main.width / 2) - 10, this.cameras.main.height - 100, 'oneMoreBtn').setOrigin(1, 1).setScale(0.52).setDepth(10).setAlpha(0);
     const backToTitleBtn = this.add.image((this.cameras.main.width / 2) + 10, this.cameras.main.height - 100, 'backToTitleBtn').setOrigin(0, 1).setScale(0.52).setDepth(10).setAlpha(0);

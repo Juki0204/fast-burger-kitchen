@@ -29,6 +29,8 @@ class MainScene extends Phaser.Scene {
   }
 
   create() {
+    this.cameras.main.setRoundPixels(true);
+
     let gameWidth = this.cameras.main.width;
     let gameHeight = this.cameras.main.height;
     let noworder = false;
