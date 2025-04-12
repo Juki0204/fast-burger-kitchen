@@ -78,16 +78,6 @@ class MainScene extends Phaser.Scene {
     //スコア
     const scoreTxt = this.add.text(12, 50, `SCORE: ${this.score}`, { fontFamily: 'sans serif', fontSize: 18, fontStyle: 'bold', color: "white" }).setOrigin(0, 0);
 
-    // this.time.addEvent({
-    //   delay: 1000,
-    //   loop: true,
-    //   callback: () => {
-    //     this.currentTime--;
-    //     this.updateTimeBar();
-    //   },
-    //   callbackScope: this,
-    // });
-
     //操作ボタン
     const btnWidth = Math.floor((gameWidth - 24) / 3);
     const btnHeight = Math.floor(btnWidth * 0.737705);
