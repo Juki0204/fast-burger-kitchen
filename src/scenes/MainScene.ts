@@ -217,12 +217,12 @@ class MainScene extends Phaser.Scene {
 
     //////////////////////////////// バーガー注文処理 ///////////////////////////////
     const quizList = [
-      { "name": "シンプルバーガー", "question": [5, 6], "price": 400 },
+      { "name": "シンプルバーガー", "question": [4, 6], "price": 400 },
       { "name": "クラシックバーガー", "question": [2, 3, 6], "price": 600 },
-      { "name": "チーズバーガー", "question": [2, 2, 3, 6], "price": 800 },
-      { "name": "フレッシュバーガー", "question": [3, 3, 4, 6], "price": 800 },
-      { "name": "ダブルバーガー", "question": [1, 3, 4, 6, 6], "price": 1200 },
-      { "name": "デラックスバーガー", "question": [1, 2, 3, 4, 6, 6], "price": 1500 },
+      { "name": "チーズバーガー", "question": [2, 2, 4, 6], "price": 800 },
+      { "name": "フレッシュバーガー", "question": [1, 3, 5, 6], "price": 800 },
+      { "name": "ダブルバーガー", "question": [1, 3, 5, 6, 6], "price": 1200 },
+      { "name": "デラックスバーガー", "question": [1, 2, 3, 5, 6, 6], "price": 1500 },
     ];
 
     let quiz: { name: string, question: number[], price: number };
