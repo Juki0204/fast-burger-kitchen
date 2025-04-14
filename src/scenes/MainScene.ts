@@ -323,7 +323,7 @@ class MainScene extends Phaser.Scene {
         isDrugging = false;
         slideSE.play();
 
-        if (burgerContainer.x < (gameWidth / 2) - 50) {
+        if (burgerContainer.x < (gameWidth / 2) - 10) {
           this.tweens.add({
             targets: burgerContainer,
             x: -200,
