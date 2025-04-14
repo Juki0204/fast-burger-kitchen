@@ -9,11 +9,11 @@ class MainScene extends Phaser.Scene {
 
   fillingsList = [
     { "num": 1, "ja": "たまねぎ", "en": "onion", "price": 10 },
-    { "num": 2, "ja": "チーズ", "en": "cheese", "price": 20 },
-    { "num": 3, "ja": "レタス", "en": "lettuce", "price": 10 },
+    { "num": 2, "ja": "チーズ", "en": "cheese", "price": 40 },
+    { "num": 3, "ja": "レタス", "en": "lettuce", "price": 20 },
     { "num": 4, "ja": "ピクルス", "en": "pickles", "price": 5 },
     { "num": 5, "ja": "トマト", "en": "tomato", "price": 30 },
-    { "num": 6, "ja": "パティ", "en": "patty", "price": 100 },
+    { "num": 6, "ja": "パティ", "en": "patty", "price": 150 },
     { "num": 7, "ja": "バンズ(上)", "en": "topBuns", "price": 30 },
     { "num": 8, "ja": "バンズ(下)", "en": "bottomBuns", "price": 30 },
   ];
@@ -194,7 +194,7 @@ class MainScene extends Phaser.Scene {
         burgerContainer.add(addObj);
 
         //完成ガイド生成
-        if (nowBurgerCreate === false && burgerCount > 4) {
+        if (nowBurgerCreate === false && burgerCount > 3) {
           successTween = this.tweens.add({
             targets: success,
             alpha: { from: 1, to: 0 },
@@ -217,11 +217,12 @@ class MainScene extends Phaser.Scene {
 
     //////////////////////////////// バーガー注文処理 ///////////////////////////////
     const quizList = [
-      { "name": "ハンバーガー", "question": [1, 4, 6], "price": 400 },
-      { "name": "チーズバーガー", "question": [2, 4, 6], "price": 500 },
-      { "name": "フレッシュバーガー", "question": [3, 4, 5, 6], "price": 600 },
-      { "name": "ダブルバーガー", "question": [1, 3, 4, 6, 6], "price": 700 },
-      { "name": "デラックスバーガー", "question": [2, 2, 3, 5, 6, 6], "price": 1000 },
+      { "name": "シンプルバーガー", "question": [5, 6], "price": 400 },
+      { "name": "クラシックバーガー", "question": [2, 3, 6], "price": 600 },
+      { "name": "チーズバーガー", "question": [2, 2, 3, 6], "price": 800 },
+      { "name": "フレッシュバーガー", "question": [3, 3, 4, 6], "price": 800 },
+      { "name": "ダブルバーガー", "question": [1, 3, 4, 6, 6], "price": 1200 },
+      { "name": "デラックスバーガー", "question": [1, 2, 3, 4, 6, 6], "price": 1500 },
     ];
 
     let quiz: { name: string, question: number[], price: number };
@@ -303,7 +304,7 @@ class MainScene extends Phaser.Scene {
     let judgeTxt: any;
 
     burgerContainer.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
-      if (burgerCount > 4) {
+      if (burgerCount > 3) {
         startX = pointer.x;
         isDrugging = true;
       }
@@ -311,14 +312,14 @@ class MainScene extends Phaser.Scene {
 
     this.input.on('pointermove', (pointer: Phaser.Input.Pointer) => {
 
-      if (isDrugging && burgerCount > 4) {
+      if (isDrugging && burgerCount > 3) {
         burgerContainer.x += pointer.x - startX;
         startX = pointer.x;
       }
     });
 
     this.input.on('pointerup', () => {
-      if (isDrugging && burgerCount > 4) {
+      if (isDrugging && burgerCount > 3) {
         isDrugging = false;
         slideSE.play();
 
