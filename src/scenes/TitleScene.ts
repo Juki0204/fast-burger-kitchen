@@ -13,9 +13,11 @@ class TitleScene extends Phaser.Scene {
     progressBarBg.fillStyle(0xffffff, 1);
     progressBarBg.fillRect(0, 0, this.cameras.main.width, this.cameras.main.height);
 
+    const fontFamily = '"Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif';
+
     const progressBar = this.add.graphics().setDepth(50);
-    const loadingTxt = this.add.text(this.cameras.main.width / 2, (this.cameras.main.height / 2) - 30, 'ロード中...', { fontStyle: 'bold', fontSize: 20, color: '#333333', padding: { x: 0, y: 3 } }).setOrigin(0.5, 0.5).setDepth(50);
-    const percentTxt = this.add.text(this.cameras.main.width / 2, (this.cameras.main.height / 2) + 30, '0%', { fontStyle: 'bold', fontSize: 20, color: '#333333' }).setOrigin(0.5, 0.5).setDepth(50);
+    const loadingTxt = this.add.text(this.cameras.main.width / 2, (this.cameras.main.height / 2) - 30, 'ロード中...', { fontFamily: fontFamily, fontStyle: 'bold', fontSize: 20, color: '#333333', padding: { x: 0, y: 3 } }).setOrigin(0.5, 0.5).setDepth(50);
+    const percentTxt = this.add.text(this.cameras.main.width / 2, (this.cameras.main.height / 2) + 30, '0%', { fontFamily: fontFamily, fontStyle: 'bold', fontSize: 20, color: '#333333' }).setOrigin(0.5, 0.5).setDepth(50);
 
     this.load.on('progress', (value: number) => {
       progressBar.clear();
@@ -99,7 +101,7 @@ class TitleScene extends Phaser.Scene {
       if (highScore) {
         highScoreTxt = `ハイスコア:${parseInt(highScore).toLocaleString()}円`;
       }
-      this.add.text(this.cameras.main.width / 2, this.cameras.main.height - 14, highScoreTxt, { fontSize: `24px`, fontStyle: "bold", color: '#333333' }).setOrigin(0.5, 1).setDepth(10);
+      this.add.text(this.cameras.main.width / 2, this.cameras.main.height - 14, highScoreTxt, { fontFamily: fontFamily, fontSize: `24px`, fontStyle: "bold", color: '#333333' }).setOrigin(0.5, 1).setDepth(10);
       const highScoreArea = this.add.graphics();
       highScoreArea.fillStyle(0xFFFFFF, 0.8);
       highScoreArea.fillRoundedRect(8, this.cameras.main.height - 48, this.cameras.main.width - 16, 40, 6);

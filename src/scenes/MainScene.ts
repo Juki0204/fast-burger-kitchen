@@ -52,6 +52,8 @@ class MainScene extends Phaser.Scene {
 
     this.cameras.main.fadeIn(500);
 
+    const fontFamily = '"Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif';
+
     //////////////////////// UI関係 //////////////////////////
     this.add.rectangle(gameWidth / 2, gameHeight / 2, gameWidth, gameHeight, 0x959097).setOrigin(0.5, 0.5);
     this.add.image(gameWidth / 2, 0, 'bg').setOrigin(0.5, 0);
@@ -76,7 +78,7 @@ class MainScene extends Phaser.Scene {
     this.currentTime = this.maxTime;
 
     //スコア
-    const scoreTxt = this.add.text(12, 50, `SCORE: ${this.score}`, { fontSize: 18, fontStyle: 'bold', color: "white" }).setOrigin(0, 0);
+    const scoreTxt = this.add.text(12, 50, `SCORE: ${this.score}`, { fontFamily: fontFamily, fontSize: 18, fontStyle: 'bold', color: "white" }).setOrigin(0, 0);
 
     //操作ボタン
     const btnWidth = Math.floor((gameWidth - 24) / 3);
@@ -260,7 +262,7 @@ class MainScene extends Phaser.Scene {
       orderBg.fillStyle(0xFFFF8C, 1);
       orderBg.fillRoundedRect(0, 0, 220, (quiz.question.length + 2) * 28, 5);
       orderContainer.add(orderBg);
-      const orderBurger = this.add.text(110, 8, `《${quiz.name}》`, { fontSize: 18, fontStyle: "bold", color: "black", padding: { top: 5, bottom: 5 } }).setOrigin(0.5, 0);
+      const orderBurger = this.add.text(110, 8, `《${quiz.name}》`, { fontFamily: fontFamily, fontSize: 18, fontStyle: "bold", color: "black", padding: { top: 5, bottom: 5 } }).setOrigin(0.5, 0);
       orderContainer.add(orderBurger);
 
       for (let i = 0; i < quiz.question.length; i++) {
@@ -272,7 +274,7 @@ class MainScene extends Phaser.Scene {
         const newHeight = newWidth * aspectRatio;
 
         const orderImg = this.add.image(16, (i * 28) + 40, this.fillingsList[quiz.question[i] - 1].en).setOrigin(0, 0).setDisplaySize(newWidth, newHeight);
-        const orderTxt = this.add.text(48, (i * 28) + 36, this.fillingsList[quiz.question[i] - 1].ja, { fontSize: 16, fontStyle: "bold", color: "black", padding: { top: 5, bottom: 5 } }).setOrigin(0, 0).setColor("black");
+        const orderTxt = this.add.text(48, (i * 28) + 36, this.fillingsList[quiz.question[i] - 1].ja, { fontFamily: fontFamily, fontSize: 16, fontStyle: "bold", color: "black", padding: { top: 5, bottom: 5 } }).setOrigin(0, 0).setColor("black");
         const border = this.add.rectangle(16, (i * 28) + 58, 188, 2, 0xEFEC78).setOrigin(0, 0);
         orderContainer.add([orderImg, orderTxt, border]);
       }
@@ -341,7 +343,7 @@ class MainScene extends Phaser.Scene {
               scoreTxt.setText(`SCORE: ${this.score}`);
               const txtColor = this.scoreCalc(quiz.price, checkAnswer(quesionArr, answerArr), answer) > 0 ? "white" : "red";
               const scoreSign = this.scoreCalc(quiz.price, checkAnswer(quesionArr, answerArr), answer) > 0 ? "+" : "";
-              const scoreAddTxt = this.add.text(scoreTxt.displayWidth + 30, 50, `${scoreSign}${this.scoreCalc(quiz.price, checkAnswer(quesionArr, answerArr), answer)}`, { fontSize: 18, fontStyle: "bold", color: txtColor }).setOrigin(0, 0);
+              const scoreAddTxt = this.add.text(scoreTxt.displayWidth + 30, 50, `${scoreSign}${this.scoreCalc(quiz.price, checkAnswer(quesionArr, answerArr), answer)}`, { fontFamily: fontFamily, fontSize: 18, fontStyle: "bold", color: txtColor }).setOrigin(0, 0);
               this.tweens.add({
                 targets: scoreAddTxt,
                 alpha: 0,
@@ -368,7 +370,7 @@ class MainScene extends Phaser.Scene {
               if (checkAnswer(quesionArr, answerArr) === 'perfect') {
                 perfectSE.play();
                 this.currentTime += 2;
-                const plusTxt = this.add.text(236, 31, '+2s', { fontStyle: "bold", color: "white" }).setOrigin(1, 0.5);
+                const plusTxt = this.add.text(236, 31, '+2s', { fontFamily: fontFamily, fontStyle: "bold", color: "white" }).setOrigin(1, 0.5);
                 this.tweens.add({
                   targets: plusTxt,
                   alpha: 0,
@@ -379,7 +381,7 @@ class MainScene extends Phaser.Scene {
                 });
               } else if (checkAnswer(quesionArr, answerArr) === 'bad') {
                 this.currentTime -= 1;
-                const minusTxt = this.add.text(236, 31, '-1s', { fontStyle: "bold", color: "red" }).setOrigin(1, 0.5);
+                const minusTxt = this.add.text(236, 31, '-1s', { fontFamily: fontFamily, fontStyle: "bold", color: "red" }).setOrigin(1, 0.5);
                 this.tweens.add({
                   targets: minusTxt,
                   alpha: 0,
