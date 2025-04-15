@@ -76,7 +76,7 @@ class MainScene extends Phaser.Scene {
     this.currentTime = this.maxTime;
 
     //スコア
-    const scoreTxt = this.add.text(12, 50, `SCORE: ${this.score}`, { fontFamily: 'sans serif', fontSize: 18, fontStyle: 'bold', color: "white" }).setOrigin(0, 0);
+    const scoreTxt = this.add.text(12, 50, `SCORE: ${this.score}`, { fontSize: 18, fontStyle: 'bold', color: "white" }).setOrigin(0, 0);
 
     //操作ボタン
     const btnWidth = Math.floor((gameWidth - 24) / 3);
@@ -341,7 +341,7 @@ class MainScene extends Phaser.Scene {
               scoreTxt.setText(`SCORE: ${this.score}`);
               const txtColor = this.scoreCalc(quiz.price, checkAnswer(quesionArr, answerArr), answer) > 0 ? "white" : "red";
               const scoreSign = this.scoreCalc(quiz.price, checkAnswer(quesionArr, answerArr), answer) > 0 ? "+" : "";
-              const scoreAddTxt = this.add.text(scoreTxt.displayWidth + 30, 50, `${scoreSign}${this.scoreCalc(quiz.price, checkAnswer(quesionArr, answerArr), answer)}`, { fontFamily: "sans serif", fontSize: 18, fontStyle: "bold", color: txtColor }).setOrigin(0, 0);
+              const scoreAddTxt = this.add.text(scoreTxt.displayWidth + 30, 50, `${scoreSign}${this.scoreCalc(quiz.price, checkAnswer(quesionArr, answerArr), answer)}`, { fontSize: 18, fontStyle: "bold", color: txtColor }).setOrigin(0, 0);
               this.tweens.add({
                 targets: scoreAddTxt,
                 alpha: 0,
@@ -368,7 +368,7 @@ class MainScene extends Phaser.Scene {
               if (checkAnswer(quesionArr, answerArr) === 'perfect') {
                 perfectSE.play();
                 this.currentTime += 2;
-                const plusTxt = this.add.text(236, 31, '+2s', { fontFamily: "sans serif", fontStyle: "bold", color: "white" }).setOrigin(1, 0.5);
+                const plusTxt = this.add.text(236, 31, '+2s', { fontStyle: "bold", color: "white" }).setOrigin(1, 0.5);
                 this.tweens.add({
                   targets: plusTxt,
                   alpha: 0,
@@ -379,7 +379,7 @@ class MainScene extends Phaser.Scene {
                 });
               } else if (checkAnswer(quesionArr, answerArr) === 'bad') {
                 this.currentTime -= 1;
-                const minusTxt = this.add.text(236, 31, '-1s', { fontFamily: "sans serif", fontStyle: "bold", color: "red" }).setOrigin(1, 0.5);
+                const minusTxt = this.add.text(236, 31, '-1s', { fontStyle: "bold", color: "red" }).setOrigin(1, 0.5);
                 this.tweens.add({
                   targets: minusTxt,
                   alpha: 0,

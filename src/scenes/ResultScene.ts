@@ -36,9 +36,9 @@ class ResultScene extends Phaser.Scene {
       highScoreTxt = "ハイスコア更新！";
     }
 
-    this.add.text(this.cameras.main.width / 2, (this.cameras.main.height / 2) - 50, '今回のスコア', { fontFamily: 'sans serif', fontSize: 24, fontStyle: 'bold', color: 'white', padding: { x: 0, y: 5 } }).setOrigin(0.5, 0.5).setDepth(10);
-    this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2, `${parseInt(resultScore).toLocaleString()}円`, { fontFamily: 'sans serif', fontSize: 40, fontStyle: 'bold', color: 'white', padding: { x: 0, y: 5 } }).setOrigin(0.5, 0.5).setDepth(10);
-    this.add.text(this.cameras.main.width / 2, (this.cameras.main.height / 2) + 40, highScoreTxt, { fontFamily: 'sans serif', fontSize: 20, fontStyle: 'bold', color: 'white', padding: { x: 0, y: 5 } }).setOrigin(0.5, 0.5).setDepth(10);
+    this.add.text(this.cameras.main.width / 2, (this.cameras.main.height / 2) - 50, '今回のスコア', { fontSize: 24, fontStyle: 'bold', color: 'white', padding: { x: 0, y: 5 } }).setOrigin(0.5, 0.5).setDepth(10);
+    this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2, `${parseInt(resultScore).toLocaleString()}円`, { fontSize: 40, fontStyle: 'bold', color: 'white', padding: { x: 0, y: 5 } }).setOrigin(0.5, 0.5).setDepth(10);
+    this.add.text(this.cameras.main.width / 2, (this.cameras.main.height / 2) + 40, highScoreTxt, { fontSize: 20, fontStyle: 'bold', color: 'white', padding: { x: 0, y: 5 } }).setOrigin(0.5, 0.5).setDepth(10);
 
     this.tweens.add({
       targets: [resultBg],
