@@ -260,9 +260,9 @@ class MainScene extends Phaser.Scene {
       //注文の作成
       const orderBg = this.add.graphics();
       orderBg.fillStyle(0xFFFF8C, 1);
-      orderBg.fillRoundedRect(0, 0, 220, (quiz.question.length + 2) * 28, 5);
+      orderBg.fillRoundedRect(0, 0, 200, (quiz.question.length + 2) * 28, 5);
       orderContainer.add(orderBg);
-      const orderBurger = this.add.text(110, 8, `《${quiz.name}》`, { fontFamily: fontFamily, fontSize: 18, fontStyle: "bold", color: "black", padding: { top: 5, bottom: 5 } }).setOrigin(0.5, 0);
+      const orderBurger = this.add.text(100, 8, `《${quiz.name}》`, { fontFamily: fontFamily, fontSize: 16, fontStyle: "bold", color: "black", padding: { top: 5, bottom: 5 } }).setOrigin(0.5, 0);
       orderContainer.add(orderBurger);
 
       for (let i = 0; i < quiz.question.length; i++) {
@@ -274,8 +274,8 @@ class MainScene extends Phaser.Scene {
         const newHeight = newWidth * aspectRatio;
 
         const orderImg = this.add.image(16, (i * 28) + 40, this.fillingsList[quiz.question[i] - 1].en).setOrigin(0, 0).setDisplaySize(newWidth, newHeight);
-        const orderTxt = this.add.text(48, (i * 28) + 36, this.fillingsList[quiz.question[i] - 1].ja, { fontFamily: fontFamily, fontSize: 16, fontStyle: "bold", color: "black", padding: { top: 5, bottom: 5 } }).setOrigin(0, 0).setColor("black");
-        const border = this.add.rectangle(16, (i * 28) + 58, 188, 2, 0xEFEC78).setOrigin(0, 0);
+        const orderTxt = this.add.text(48, (i * 28) + 36, this.fillingsList[quiz.question[i] - 1].ja, { fontFamily: fontFamily, fontSize: 14, fontStyle: "bold", color: "black", padding: { top: 5, bottom: 5 } }).setOrigin(0, 0).setColor("black");
+        const border = this.add.rectangle(16, (i * 28) + 58, 168, 2, 0xEFEC78).setOrigin(0, 0);
         orderContainer.add([orderImg, orderTxt, border]);
       }
 

@@ -84,6 +84,13 @@ class TitleScene extends Phaser.Scene {
     this.load.on('complete', () => {
       this.cameras.main.setRoundPixels(true);
 
+      // if (this.scale.isFullscreen) {
+      //   console.log('既にフルスクリーンです');
+      // } else {
+      //   this.scale.startFullscreen();
+      //   console.log('フルスクリーンモードへ移行');
+      // }
+
       const selectSE = this.sound.add('selectSE', { loop: false, volume: 0.5 })
       const bgm = this.sound.add('titleBGM', { loop: true, volume: 0.3 });
       bgm.play();
